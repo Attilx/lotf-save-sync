@@ -1,0 +1,21 @@
+MATERIALE PER LA PAGINA NEXUS MODS
+
+Titolo: TITLE.txt
+Riepilogo breve: SUMMARY_EN.txt
+Descrizione bilingue con BBCode: DESCRIPTION_EN_IT.txt
+Descrizione file: FILE_DESCRIPTION.txt
+Versione: 1.0.1 (beta)
+Changelog: CHANGELOG.txt
+Immagini: GUI_EN.png e GUI_IT.png, interfaccia vuota.
+File da caricare: lo ZIP completo LOTF_Save_Sync_1.0.1_Beta_Windows_x64.zip.
+Download manuale; non indicarlo come installazione Vortex.
+Categoria: scegliere la voce per utility/strumenti, se disponibile nel modulo.
+Tag: English, Italian, utility/bug fix pertinenti se presenti; AI-Generated Content e AI Media secondo i tag disponibili e le regole Nexus.
+Non attivare donazioni o monetizzazione senza una scelta esplicita del titolare dell’account.
+Permessi del codice applicativo: MIT; restano valide le licenze dei componenti di terzi incluse nell’archivio.
+
+La pagina non è pubblicata dal semplice fatto che questi testi siano presenti nel pacchetto. Serve completare il caricamento dal proprio account Nexus Mods.
+
+Regole consultate:
+https://help.nexusmods.com/article/28-file-submission-guidelines
+https://help.nexusmods.com/article/136-best-practices-for-mod-authors

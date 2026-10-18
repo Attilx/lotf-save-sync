@@ -1,0 +1,1 @@
+Offline host-to-guest save repair with selectable modifiers, story/NPCs, shortcuts and vestiges. Preserves guest inventory and creates backups. First mod, Steam-tested repair, 2.5.624 saves only. English/Italian GUI. Beta: use at your own risk.

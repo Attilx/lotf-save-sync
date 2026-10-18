@@ -1,0 +1,43 @@
+LOTF Save Sync 1.0.1 beta — validation scope
+
+The repair engine is unchanged from the tested 1.0.0 release. Version 1.0.1
+adds public-release notices and removes private-fixture test references.
+
+AUTOMATED TESTS
+15 internal tests passed, including integration tests with non-distributed saves.
+The public test suite contains only synthetic inputs, with no private fixtures.
+The full suite also passed under python -O (checks remain enabled).
+
+Within these tests:
+• All 15 nonempty option combinations produced validated outputs.
+• A second synchronization produced identical output bytes for each combination.
+• Full synchronization reproduced the exact decoded V4 payload for the main,
+  _b1 and _b2 saves. The underlying repair was confirmed working in our Steam-version test.
+• Inventory, stats, difficulty and NG remained unchanged.
+• Personal weapon-ability tags were preserved even with a different donor state.
+• The two known V2 owner/dependency defects were detected; V4 had neither.
+• Corrupt CRC, truncation and oversized chunks were rejected.
+• Version, difficulty, NG and modifier mismatches were blocked as applicable.
+• A corrupt backup cancelled preparation.
+• Backups matched their inputs byte for byte; changed inputs blocked creation.
+• ZIP inputs were read without extraction; only matching slot backups selected.
+• Every UI translation key exists in Italian and English.
+
+GUI CHECKS
+Tkinter interface executed on a virtual Linux display.
+Verified: loading both sources, analysis, three-file preview, language switch,
+creation of corrected files and backups, help, invalidation after option changes,
+and scrolling/wrapping at reduced window size. Inspected Italian and English
+screenshots. No real-save data or screenshots are included in this package.
+
+WINDOWS PACKAGE CHECKS
+CPython 3.13.16 x64 and matching Tcl/Tk came from official python.org packages.
+Python, _tkinter and Tcl/Tk PE dependency lists were inspected. Required runtime
+DLLs and Tcl/Tk scripts are bundled; python313._pth exposes the application and
+Tkinter. Source compiles; the final ZIP passes integrity checks.
+
+NOT VERIFIED
+The Windows launcher/runtime has not been executed on a native Windows machine
+in this development environment. Partial selections have not all been tested
+in game. No claim of compatibility beyond save build 2.5.624 is made. Native
+opaque tails are retained/audited as bytes, not fully semantically decoded.

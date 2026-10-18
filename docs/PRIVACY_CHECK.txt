@@ -1,0 +1,11 @@
+PUBLIC RELEASE PRIVACY CHECK
+
+No personal saves, account files, private fixture references, crash dumps,
+private diagnostic reports or captured player/account identifiers are included.
+The archive was checked against identifiers and hashes from the development
+saves. No matching sensitive patterns were found. Public source/runtime hashes
+are distribution checksums, not hashes of personal saves.
+
+The included GUI images show an empty interface with no loaded saves or paths.
+Reports created later by an end user remain local and can contain that user's
+character metadata. Review such reports before sharing them.

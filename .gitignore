@@ -1,0 +1,22 @@
+# Build-only third-party binaries and generated outputs
+.build-cache/
+dist/
+runtime/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+# Never commit private saves, input/output reports, account or crash files.
+*.sav
+*.rar
+*.zip
+*.7z
+*.vdf
+*.dmp
+*.log
+REPORT.json
+BACKUP_GUEST/
+CORRECTED/
+*.partial/
+.env
+.env.*

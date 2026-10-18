@@ -1,0 +1,15 @@
+PRIMA MOD / BETA — VERSIONE STEAM
+Questa è la nostra prima mod/utility. La riparazione alla base del programma è stata provata da noi sulla versione Steam di Lords of the Fallen (2023), con salvataggi della versione 2.5.624.
+Non sappiamo se funziona con tutte le versioni del gioco e non garantiamo compatibilità con altri aggiornamenti, piattaforme, configurazioni o salvataggi. Questa versione consente la scrittura soltanto per il formato 2.5.624 riconosciuto.
+Il programma è fornito così com’è, senza garanzie. Lo utilizzi a tuo rischio: non ci assumiamo responsabilità per eventuali problemi, malfunzionamenti, perdita o corruzione di salvataggi, progressi, oggetti o altri dati, nei limiti consentiti dalla legge.
+Prima di procedere, conserva una copia completa e separata dei tuoi salvataggi. I controlli automatici non escludono ogni possibile problema.
+La prova in gioco riguarda la riparazione di base; tutte le combinazioni opzionali e l’avvio del pacchetto su ogni configurazione Windows non sono stati verificati.
+
+============================================================
+
+FIRST MOD / BETA — STEAM VERSION
+This is our first mod/utility. We tested the underlying save repair on the Steam version of Lords of the Fallen (2023), using saves from version 2.5.624.
+We do not know whether it works with every game version. Compatibility with other updates, platforms, configurations or saves is not guaranteed. This release only permits writing recognized 2.5.624 saves.
+The program is provided as is, without warranties. Use it at your own risk: we accept no responsibility for problems, malfunctions, or loss or corruption of saves, progress, items or other data, to the extent permitted by law.
+Before using it, keep a complete, separate backup of your saves. Automated checks cannot rule out every possible problem.
+In-game testing covered the underlying repair; not every optional combination or Windows configuration has been tested.

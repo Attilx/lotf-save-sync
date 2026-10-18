@@ -1,0 +1,17 @@
+LOTF Save Sync — third-party notices
+
+Save container research was informed by Dedrich/lotf2-difficulty-fix-gui.
+Project: https://github.com/Dedrich/lotf2-difficulty-fix-gui
+License: MIT; included in licenses/Dedrich_MIT.txt.
+The difficulty patch itself is not invoked by this application.
+
+Bundled CPython 3.13.16, Windows x64, official Python Software Foundation build.
+https://www.python.org/ftp/python/3.13.16/
+Python license and third-party notices: runtime/LICENSE.txt and licenses/Python_LICENSE.txt.
+Matching Tcl/Tk files are from the official Python tcltk.msi distribution.
+Tcl/Tk license: licenses/Tcl_Tk_LICENSE.txt and runtime/tcl/tk8.6/license.terms.
+Official runtime binaries are redistributed without modification; the runtime
+path configuration file is customized for this portable application.
+
+This application is unofficial and is not affiliated with HEXWORKS or CI Games.
+Lords of the Fallen is a trademark of its respective owners.

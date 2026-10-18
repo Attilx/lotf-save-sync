@@ -1,0 +1,86 @@
+LOTF Save Sync 1.0.1 — developer notes
+
+Source layout
+app.py: desktop entry point and Windows DLL/Tcl paths.
+lotfsync/gui.py + i18n.py: Tkinter UI, IT/EN, background worker queue.
+workflow.py: file/folder/ZIP input, rotating backups, preflight and atomic output.
+engine.py: selective synchronization and preservation validation.
+format.py + properties.py: GVAS/zlib/CRC32 and tagged UE property codec.
+records.py + dynamic.py + references.py: actor maps, GUID registries and dependency audit.
+schema.py: version-specific category predicates and record helpers.
+
+Runtime
+Portable Windows x64: official CPython 3.13.16 embeddable distribution plus the
+matching official Tcl/Tk installer files. python313._pth explicitly lists the
+stdlib ZIP, runtime root, DLLs, Lib, and application parent. No pip packages,
+network APIs, administrator privileges or system Python are needed at runtime.
+Source mode: Python 3.12+ with Tkinter; run python app.py.
+Windows launcher execution was not tested on native Windows in development.
+
+Container
+GVAS header through save class FString; compressed-body length; zlib chunks
+with 49-byte header, raw chunks <= 131072 bytes, paired length fields; final
+CRC32. Tagged payload includes its own byte-length prefix. The writer reuses
+unchanged compressed chunks. All essential checks are explicit exceptions,
+not asserts (python -O retains validation). Save input limit 64 MiB, decoded
+payload limit 256 MiB; ZIP source 256 MiB and 10000 entries; no ZIP extraction.
+
+Version gate
+Only 2.5.624 / MasterSaveVersion 12 can be written. Host and guest must have
+matching NG and difficulty. No version override is provided. Extending this
+requires new fixtures, validated field semantics and in-game tests, not just
+changing the version constant.
+
+V4 correctness regression
+Retain guest DualRealmDirector object identity. Copy donor Data and dependency
+values, remap paths to the guest manager, re-key the dependency group to the
+retained guest owner ID, and replace the declared Dependencies array together
+with serialized values. Reject length-changing path layouts. Transfer selected
+anchor actors together with their GUID-to-map registry entries. Preserve world
+loot and unselected actors. Refuse differing dropped-vigor state.
+
+Selections
+Modifiers: HexGameplayModifier.* world entries plus corresponding GeneralTags
+and GameState.HexGameplayModifiersEnabled. Seeds are copied with configuration.
+Story: the audited story predicates, excluding personal/weapon-ability flags,
+with recognized NPC/boss actors and manual actor records. Weapon-ability tag
+state is always guest-owned; tags may be reordered into the V4 story block
+without changing their per-list values or bytes.
+Passages: Progression/Elevator actors and GameState.Flags.Quest.Door.* flags.
+Checkpoints: static anchors, dynamic forged anchor / return portal, manager
+state and references, LevelName/BoundAnchorName/PlayerTransform/LastVisitedArea,
+QuestDirector LastVisitedArea and valid-location component Data.
+Some narrative door conditions are in the story category. Partial options do
+not claim complete gameplay consistency, particularly for quest items, which
+are intentionally preserved. Full selection matches the tested V4 fixture.
+
+Verification
+Decode and CRC check; lossless container round-trip; tagged-boundary parsing;
+explicit root allowlist; hashes for unchanged roots; exact guest inventory,
+stats, difficulty and NG preservation; preserved unselected world values and
+tag bytes; preserved unselected static/dynamic actors; dependency group owner,
+declared dependency and handle definitions; actor GUID references and dynamic
+registry consistency; reverse-patch equality; output decode and disk read-back;
+source-content freshness immediately before and after output creation.
+Nonzero native tails are counted but not semantically decoded. This is not a
+full emulator or universal validator for all LOTF gameplay systems.
+
+Rotating backups
+The selected host MAIN is donor for every guest file. Each guest backup keeps
+its own original inventory/stats. Only backups beside the selected main slot
+are included. Name and character-class bytes are checked: no stable unique
+character ID was established. ObjectRecordDetails.ID is regenerated across
+rotations and must not be treated as a character identity. The operator still
+must choose the correct slot. GeneralSave and unrelated slots are untouched.
+
+Tests
+From the application root: python -m unittest discover -s tests -v
+Only synthetic-input tests are distributed. Private fixtures, saved reports,
+character identifiers and development screenshots are excluded from the release.
+Internal regression tests covered all category combinations and the complete
+repair. See VALIDATION.txt for scope and limitations.
+
+Distribution
+No personal saves, player names, crash dumps, account identifiers or reports
+from real users are shipped. Sources and licenses are included. This is an
+unofficial utility, not affiliated with HEXWORKS/CI Games.

@@ -1,0 +1,73 @@
+LOTF SAVE SYNC 1.0.1 — ENGLISH GUIDE
+
+FIRST MOD / BETA — STEAM VERSION
+This is our first mod/utility. We tested the underlying save repair on the Steam version of Lords of the Fallen (2023), using saves from version 2.5.624.
+We do not know whether it works with every game version. Compatibility with other updates, platforms, configurations or saves is not guaranteed. This release only permits writing recognized 2.5.624 saves.
+The program is provided as is, without warranties. Use it at your own risk: we accept no responsibility for problems, malfunctions, or loss or corruption of saves, progress, items or other data, to the extent permitted by law.
+Before using it, keep a complete, separate backup of your saves. Automated checks cannot rule out every possible problem.
+In-game testing covered the underlying repair; not every optional combination or Windows configuration has been tested.
+
+Based on the V4 repair confirmed working in game.
+Write compatibility: Lords of the Fallen PC save version 2.5.624, MasterSaveVersion 12. Windows 10/11, 64-bit. Python and Tcl/Tk are included; no Python installation is needed. The program works fully offline and never uploads saves.
+
+START
+1. Extract the entire ZIP to a folder, for example on your Desktop. Do not launch from inside the ZIP.
+2. Double-click AVVIA_START.bat. Choose English in the upper-right language menu.
+3. If the window does not open, run DIAGNOSTICA_DIAGNOSTICS.bat. Keep any LOTF_Save_Sync_startup_error.txt written to your user folder.
+
+PREPARE SAVES
+Close the game on both computers and let Steam Cloud finish syncing. Collect current host and guest copies in separate folders.
+
+Common Steam location:
+%LOCALAPPDATA%\LOTF2\Saved\SaveGames\<account ID>\
+Paths may differ with installation and platform.
+
+Character files are Save00.sav, Save01.sav, etc. Rotating backups are Save00_b1.sav and Save00_b2.sav. Do not identify a character only by slot number: check the name after analysis. GeneralSave.sav is the general profile and is not modified. Console and encrypted formats are not supported.
+
+WORKFLOW
+1. HOST: load the save containing the correct story progress. Choose a .sav file, ZIP archive or folder.
+2. GUEST: load the character to repair.
+3. If a source contains multiple slots, choose the desired slot below its path. Folders are scanned at the top level only; ZIP archives may contain subfolders.
+4. Choose synchronization categories. All four are selected initially: together they reproduce the V4 repair tested in game.
+5. Keep “Include _b1 and _b2 backups” selected to repair existing rotating backups of that same slot. Other characters are not modified. The selected main host save is the reference for every output; older host backups are not progression sources.
+6. Click “Analyze and compare”. The program prepares the result in memory and verifies every selected file. Check host/guest names, versions, NG, difficulty and vestiges.
+7. Choose an output folder and click “Create repaired copies”. A new subfolder is created; source files remain untouched.
+8. Click “Open result”.
+
+WHAT EACH OPTION SYNCS
+• Modifiers: the host configuration, including Ironman, vestige decay, random seeds and activation tags. It copies the host configuration rather than forcing every modifier on. Existing acquired loot is unchanged.
+• Story, bosses and NPCs: recognized story flags/tags, boss/NPC state and decisions, stigmas and quest actors. Guest items, including quest items, are retained; partial selections cannot ensure consistency across unrelated campaigns. This is not a universal quest editor.
+• Passages and shortcuts: door, elevator and progression actors, plus GameState.Flags.Quest.Door.* flags. Some narrative door conditions belong to the story category; select both to align the entire campaign.
+• Vestiges and checkpoint: active vestiges, seed and return portal, checkpoint, map, position and last area. Transfers linked actors and repairs manager references as in V4. This is one coherent group to avoid partial links. If dropped vigor differs, the option stops: recover the vigor in game first, or uncheck this group.
+
+ALWAYS PRESERVED
+Guest inventory, item quantities, weapons, runes and rune slots, equipment, stats, appearance, character name/identity, difficulty and NG cycle. Unselected world loot and unrelated personal data remain guest-owned. Existing internal save diagnostics are retained in the report; this tool does not “repair” items or runes.
+
+OUTPUT AND INSTALLATION
+The LOTF_Sync_<date>_<code> folder contains:
+CORRECTED — repaired files to install in the game.
+BACKUP_GUEST — byte-identical copies of the guest inputs.
+REPORT.json — options, SHA-256 hashes, changed fields and preservation checks.
+GUIDE_IT.txt / GUIDE_EN.txt — these instructions.
+
+On the GUEST computer, with the game closed:
+1. Also keep a complete copy of the guest SaveGames folder before replacing files.
+2. Prevent Steam Cloud from immediately replacing the repaired files. You can temporarily pause cloud synchronization for this game until after the test.
+3. Copy only the files inside CORRECTED into the original folder for the same account and slot, retaining their filenames. If _b1/_b2 were included, replace the trio together. Do not put reports or entire output folders into the slot.
+4. Do not replace GeneralSave.sav or install anything in the host save folder.
+5. Launch the game, choose the correct character, and check inventory, modifiers and checkpoint before trying co-op again.
+6. Re-enable Steam Cloud after checking the save. In a conflict, identify the local copy you just verified instead of automatically accepting the latest cloud copy.
+
+RESTORE
+Close the game. Put all replaced files from BACKUP_GUEST back in their original location. If you played after the repair and the game rotated other backups, use the complete folder backup made before the test. Handle cloud syncing as during installation.
+
+WHEN THE PROGRAM STOPS
+Unsupported version; different NG or difficulty; different modifiers while that option is disabled; corrupt files; inconsistent references; a backup from another identity; unsupported checkpoint layout; different dropped vigor; files changed after analysis. An error in one backup cancels the entire result: fix the input or explicitly analyze only the main save. Do not rename unrelated files to bypass checks.
+
+LIMITS AND VERIFICATION
+The full repair was confirmed working in our Steam-version test with 2.5.624 saves. Partial selections are checked automatically, but not every combination has been tested in game. Valid bytes and references do not prove every internal game rule; some native format regions remain opaque. This tool does not guarantee multiplayer access or change passwords, co-op mode, networking or general profile settings.
+
+The engine, data preservation, V4 regression and IT/EN GUI were checked in a Linux development environment. The Windows package includes official CPython/Tcl/Tk components; startup on a real Windows system was not tested in the development environment.
+
+SOURCE AND LICENSES
+Source is included in app.py and lotfsync/. With Python 3.12+ and Tkinter installed, run “python app.py”. No pip dependencies. Only public tests with synthetic inputs are included. Development saves and personal data are not distributed. See docs/DEVELOPER.txt, LICENSE.txt and THIRD_PARTY_NOTICES.txt.

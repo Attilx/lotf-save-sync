@@ -1,0 +1,7 @@
+1.0.1 beta — First public release preparation
+- Selective host-to-guest synchronization of modifiers, story/NPCs, passages and checkpoints.
+- English and Italian GUI and guides.
+- Corrected checkpoint owner/dependency references.
+- Protected guest personal data, rotating backups and output verification.
+- First-mod, Steam-test, compatibility and liability notices.
+- Public package contains only synthetic tests; no development saves or personal diagnostic data.

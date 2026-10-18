@@ -1,0 +1,73 @@
+LOTF SAVE SYNC 1.0.1 — GUIDA ITALIANA
+
+PRIMA MOD / BETA — VERSIONE STEAM
+Questa è la nostra prima mod/utility. La riparazione alla base del programma è stata provata da noi sulla versione Steam di Lords of the Fallen (2023), con salvataggi della versione 2.5.624.
+Non sappiamo se funziona con tutte le versioni del gioco e non garantiamo compatibilità con altri aggiornamenti, piattaforme, configurazioni o salvataggi. Questa versione consente la scrittura soltanto per il formato 2.5.624 riconosciuto.
+Il programma è fornito così com’è, senza garanzie. Lo utilizzi a tuo rischio: non ci assumiamo responsabilità per eventuali problemi, malfunzionamenti, perdita o corruzione di salvataggi, progressi, oggetti o altri dati, nei limiti consentiti dalla legge.
+Prima di procedere, conserva una copia completa e separata dei tuoi salvataggi. I controlli automatici non escludono ogni possibile problema.
+La prova in gioco riguarda la riparazione di base; tutte le combinazioni opzionali e l’avvio del pacchetto su ogni configurazione Windows non sono stati verificati.
+
+Riparazione basata sulla V4 confermata funzionante in gioco.
+Compatibilità di scrittura: Lords of the Fallen per PC, versione salvataggio 2.5.624, MasterSaveVersion 12. Windows 10/11 a 64 bit. Il runtime Python e Tcl/Tk sono inclusi: non serve installare Python. Il programma lavora interamente in locale e non invia i salvataggi in rete.
+
+AVVIO
+1. Estrai tutto lo ZIP in una cartella, per esempio sul Desktop. Non avviare dall’interno dello ZIP.
+2. Fai doppio clic su AVVIA_START.bat. La lingua iniziale è Italiano; puoi scegliere English in alto a destra.
+3. Se la finestra non compare, usa DIAGNOSTICA_DIAGNOSTICS.bat. Conserva l’eventuale file LOTF_Save_Sync_startup_error.txt nella tua cartella utente.
+
+PREPARA I SALVATAGGI
+Chiudete il gioco su entrambi i PC e lasciate terminare la sincronizzazione Steam Cloud. Raccogli copie aggiornate dell’host e dell’ospite in due cartelle distinte.
+
+Percorso Steam comune:
+%LOCALAPPDATA%\LOTF2\Saved\SaveGames\<ID account>\
+Il percorso può variare in base a installazione e piattaforma.
+
+Il file personaggio è Save00.sav, Save01.sav, ecc.; le copie automatiche sono Save00_b1.sav e Save00_b2.sav. Non dedurre il personaggio solo dal numero: controlla il nome mostrato dopo l’analisi. GeneralSave.sav è un profilo generale e non viene modificato. Non sono supportati formati console o salvataggi cifrati.
+
+USO
+1. HOST: carica il salvataggio che contiene il punto di storia corretto. Puoi scegliere un file .sav, uno ZIP o una cartella.
+2. OSPITE: carica il salvataggio del personaggio da riparare.
+3. Se una sorgente contiene più slot, scegli quello desiderato nel menu sotto il percorso. Le cartelle vengono lette solo al primo livello; gli ZIP possono contenere sottocartelle.
+4. Scegli le categorie da sincronizzare. Tutte e quattro sono attive all’avvio: questa combinazione riproduce la riparazione V4 provata in gioco.
+5. Lascia selezionato “Includi le copie _b1 e _b2” se vuoi riparare anche quelle presenti per lo stesso slot. Non vengono toccati altri personaggi. Il riferimento è sempre il file principale selezionato dell’host; i suoi vecchi backup non diventano sorgenti della progressione.
+6. Premi “Analizza e confronta”. Il programma prepara il risultato in memoria e verifica tutti i file selezionati. Controlla i nomi host/ospite, versione, NG, difficoltà e vestigi.
+7. Scegli una cartella di destinazione e premi “Crea copie riparate”. Il programma crea una nuova sottocartella; gli originali restano intatti.
+8. Premi “Apri risultato”.
+
+COSA SINCRONIZZA OGNI OPZIONE
+• Modificatori: configurazione dell’host, compresi Ironman, decadenza dei vestigi, semi casuali e tag di attivazione. Copia la configurazione dell’host, non forza tutti i modificatori su “attivo”. Non modifica retroattivamente il bottino già ottenuto.
+• Storia, boss e NPC: flag e tag narrativi riconosciuti, stato di boss/NPC, decisioni, stigmi e attori delle missioni. Restano invariati gli oggetti dell’ospite, anche quelli missione; una selezione parziale non garantisce la coerenza di una campagna diversa. Non è un editor universale di tutte le missioni.
+• Passaggi e scorciatoie: attori di porte, ascensori e progressione, più flag GameState.Flags.Quest.Door.*. Alcune condizioni narrative delle porte rientrano nella storia: per riallineare l’intera campagna seleziona entrambe le opzioni.
+• Vestigi e punto di ripresa: vestigi attivati, seme e portale di ritorno, punto di ripresa, mappa, posizione e ultima area. Trasferisce gli attori collegati e corregge i riferimenti del gestore come nella V4. È un gruppo unico per evitare collegamenti parziali. Se differisce il vigore lasciato nel mondo, questa opzione si ferma: recuperalo prima nel gioco oppure deseleziona il gruppo.
+
+SEMPRE PRESERVATO
+Inventario, quantità degli oggetti, armi, rune e relativi slot, equipaggiamento, statistiche, aspetto, nome/identità del personaggio, difficoltà e ciclo NG dell’ospite. Restano dell’ospite il bottino del mondo non selezionato e i dati personali non inclusi nella riparazione. Le vecchie segnalazioni interne del salvataggio vengono conservate e riportate nel rapporto; il programma non “ripara” oggetti o rune.
+
+RISULTATO E INSTALLAZIONE
+La cartella LOTF_Sync_<data>_<codice> contiene:
+CORRECTED — i file riparati da usare nel gioco.
+BACKUP_GUEST — copie identiche dei file originali dell’ospite.
+REPORT.json — opzioni, hash SHA-256, campi modificati e controlli di conservazione.
+GUIDE_IT.txt / GUIDE_EN.txt — queste istruzioni.
+
+Sul PC dell’OSPITE, con gioco chiuso:
+1. Conserva anche una copia completa della sua cartella SaveGames prima della sostituzione.
+2. Evita che Steam Cloud sostituisca immediatamente i nuovi file. Puoi sospenderlo temporaneamente per il gioco e riattivarlo dopo la prova.
+3. Copia solo i file dentro CORRECTED nella cartella originale dello stesso account/slot, mantenendo i nomi. Se hai incluso _b1/_b2, sostituisci insieme i tre file. Non copiare REPORT o le cartelle intere dentro lo slot.
+4. Non sostituire GeneralSave.sav e non installare nulla nel salvataggio dell’host.
+5. Avvia, seleziona il personaggio giusto e controlla inventario, modificatori e punto di ripresa prima di riprovare la cooperativa.
+6. Riattiva Steam Cloud dopo avere verificato il salvataggio. In un eventuale conflitto identifica la copia locale appena verificata, senza accettare automaticamente quella più recente in rete.
+
+RIPRISTINO
+Chiudi il gioco. Rimetti nello stesso percorso tutti i file di BACKUP_GUEST che avevi sostituito. Se dopo la riparazione hai giocato e il gioco ha ruotato altri backup, usa la copia completa della cartella effettuata prima della prova. Gestisci la sincronizzazione cloud come durante l’installazione.
+
+QUANDO IL PROGRAMMA SI FERMA
+Versione non supportata; NG o difficoltà diversi; modificatori diversi con relativa opzione disattivata; file corrotti; riferimenti incoerenti; backup di un’altra identità; struttura del checkpoint non supportata; vigore a terra diverso; file cambiati dopo l’analisi. Un errore su un backup annulla l’intero risultato: correggi l’input o analizza esplicitamente solo il principale. Non rinominare salvataggi estranei per aggirare un controllo.
+
+LIMITI E CONTROLLI
+La riparazione completa è stata confermata funzionante nel nostro test sulla versione Steam con salvataggi 2.5.624. Le opzioni parziali sono verificate automaticamente, ma non sono state tutte provate in gioco. La corrispondenza di file e riferimenti non dimostra ogni regola interna del gioco; alcune parti native del formato restano opache. Il programma non garantisce l’accesso multiplayer e non cambia password, modalità cooperativa, rete o impostazioni generali del profilo.
+
+Per la distribuzione sono stati controllati motore, conservazione dati, regressione V4 e interfaccia IT/EN in ambiente Linux. Il pacchetto Windows include componenti ufficiali CPython/Tcl/Tk; l’avvio su un Windows reale non è stato verificato nell’ambiente di sviluppo.
+
+SORGENTI E LICENZE
+app.py e lotfsync/ contengono il codice sorgente. Con un Python 3.12+ e Tkinter installati puoi eseguire “python app.py”. Nessuna dipendenza pip. Sono inclusi soltanto test pubblici con dati sintetici. I salvataggi e i dati personali usati nello sviluppo non sono distribuiti. Vedi docs/DEVELOPER.txt, LICENSE.txt e THIRD_PARTY_NOTICES.txt.

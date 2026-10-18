@@ -1,0 +1,3 @@
+LOTF Save Sync 1.0.1 beta — Windows x64, English/Italian
+
+Standalone offline utility with source, official Python/Tcl/Tk runtime, guides and licences. Manual download: extract everything and run AVVIA_START.bat. First mod. The underlying repair was tested on Steam with 2.5.624 saves; other versions are not guaranteed and are blocked for writing. No personal saves included. Back up your complete save folder. Use at your own risk, without warranty. Read DISCLAIMER_IT_EN.txt. This archive also includes the page text and empty-interface screenshots in nexus/.

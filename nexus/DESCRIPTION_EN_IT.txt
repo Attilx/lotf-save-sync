@@ -1,0 +1,99 @@
+[b]LOTF Save Sync — First mod / Beta[/b]
+
+[b]Please read before downloading[/b]
+This is our first mod/utility. We tested the underlying save repair on the Steam version of Lords of the Fallen (2023), using saves from version 2.5.624. We do not know whether it works with every game version. Other updates, platforms, save configurations and combinations of options are not guaranteed to work.
+
+[b]Use at your own risk.[/b] This software is provided as is, without warranties. We accept no responsibility for problems, malfunctions, lost progress, or loss or corruption of saves, items or other data, to the extent permitted by law. Always keep a complete, separate backup of your save folder before using the tool or installing its output.
+
+[b]What it does[/b]
+LOTF Save Sync is a standalone, offline desktop utility for copying selected campaign state from an intended host save into a guest save. It was created to address a co-op save mismatch involving modifiers, campaign progress and vestiges. It is intended for restoring an agreed campaign state between players.
+
+Load the host and guest as individual character saves, folders or ZIP archives, select their character slots, then choose what to synchronize:
+[list]
+[*]Modifiers: copies the host configuration, including Ironman, vestige decay and relevant random seeds.
+[*]Story, bosses and NPCs: recognized story flags, quest states and NPC/boss decisions and actors.
+[*]Passages and shortcuts: progression actors, elevators and door-related flags.
+[*]Vestiges and checkpoint: active vestiges, linked seed/return portal, location and checkpoint references.
+[/list]
+The complete selection reproduces the repair we successfully tested on Steam. Partial selections do not necessarily produce a fully aligned campaign.
+
+[b]What stays with the guest[/b]
+The writer verifies preservation of guest inventory, items, equipment, runes, character statistics, appearance, character identity, difficulty and NG cycle. Personal weapon-ability progress is retained. It does not transfer the host inventory or replace the general account profile. Quest items remain guest-owned, so transferring story state across unrelated campaigns can still leave gameplay inconsistencies.
+
+The program creates a new output folder instead of overwriting inputs. Existing _b1 and _b2 backups of the selected guest slot can be processed together. Each output keeps the personal data of its corresponding input. Unrelated character slots are not selected automatically.
+
+[b]Requirements and compatibility[/b]
+[list]
+[*]PC saves from build 2.5.624, MasterSaveVersion 12. Other versions are blocked for writing.
+[*]Host and guest with matching difficulty and NG cycle.
+[*]Windows 10/11 x64 target. Python and Tcl/Tk are bundled; no Python installation or pip packages are needed.
+[*]No online account, network connection, telemetry or automatic updater is used by the application.
+[/list]
+The underlying repair was tested in game on Steam. The engine and bilingual GUI were tested in the development environment; the portable launcher has not yet been verified on a native Windows machine in that environment. This is a beta, not a claim of universal compatibility or guaranteed co-op access. It does not change passwords, matchmaking settings, general profile settings or networking.
+
+[b]Installation and use — manual download[/b]
+[list=1]
+[*]Download and extract the entire archive to a folder outside the game directory. This is a standalone utility; do not install it as a game-file replacement through Vortex.
+[*]Close the game on both computers and let Steam Cloud finish syncing. Keep a full backup of the guest save folder.
+[*]Run AVVIA_START.bat. Select English or Italiano in the upper-right menu.
+[*]Load the HOST reference and GUEST character. If a source contains several slots, select the intended character and check its name after analysis.
+[*]Choose the synchronization categories and whether to include the guest slot's existing _b1/_b2 backups.
+[*]Click Analyze and compare, inspect the comparison, then Create repaired copies.
+[*]The result contains CORRECTED, BACKUP_GUEST, REPORT.json and both language guides.
+[*]With the game still closed, copy only the repaired .sav files from CORRECTED into the guest's original account/slot folder. Keep filenames unchanged and manage Steam Cloud so it does not immediately restore an older copy. Do not replace GeneralSave.sav or the host's files.
+[*]Launch the game and check the selected character before trying co-op again.
+[/list]
+For a typical Steam installation, saves are under %LOCALAPPDATA%\LOTF2\Saved\SaveGames\ followed by the account folder. See the included guides for the full installation, cloud-sync and restore procedure.
+
+[b]Restore[/b]
+Close the game and restore the replaced files from BACKUP_GUEST. If the game has since rotated other backups, use the full folder backup made before testing. Account for Steam Cloud during restoration.
+
+[b]Checks and limitations[/b]
+The writer checks the container checksum, serialized boundaries, protected data, selected actor records and known checkpoint dependency references. It also refuses stale inputs, inconsistent backups and unsupported layouts. A differing dropped-vigor state prevents checkpoint transfer. These checks cannot prove every internal game rule or rule out all save problems.
+
+[b]Privacy[/b]
+The release contains no development saves, personal character names, account identifiers, crash dumps or diagnostic reports taken from our saves. Images show the empty interface. Data loaded by the program stays on your computer. Reports generated during your own use may include your character metadata; review and redact them before sharing publicly.
+
+[b]Credits and transparency[/b]
+Save-container research was informed by [url=https://github.com/Dedrich/lotf2-difficulty-fix-gui]Dedrich/lotf2-difficulty-fix-gui[/url] (MIT). This tool does not run its difficulty patch. Source code and third-party licences are included. CPython and Tcl/Tk are bundled from the official Python distribution under their respective licences.
+
+Code, interface, translations and this page text were generated with ChatGPT/Codex. The underlying repair received human in-game testing on Steam. This is an unofficial community tool, not affiliated with HEXWORKS or CI Games.
+
+[hr]
+[b]ITALIANO — Prima mod / Beta[/b]
+
+Questa è la nostra prima mod/utility. Abbiamo provato la riparazione alla base del programma sulla versione Steam di Lords of the Fallen (2023), con salvataggi della versione 2.5.624. Non sappiamo se funziona con tutte le versioni del gioco: compatibilità con altri aggiornamenti, piattaforme, configurazioni e combinazioni di opzioni non garantita.
+
+[b]Utilizzo a proprio rischio.[/b] Il software è fornito così com’è, senza garanzie. Non ci assumiamo responsabilità per eventuali problemi, malfunzionamenti, perdita di progressi o perdita/corruzione di salvataggi, oggetti e altri dati, nei limiti consentiti dalla legge. Conserva sempre una copia completa e separata della cartella dei salvataggi prima di usarlo o installare i file prodotti.
+
+[b]Funzioni[/b]
+Carica i save dell’host e dell’ospite come file, cartelle o ZIP e scegli lo slot del personaggio. Puoi sincronizzare separatamente:
+[list]
+[*]Modificatori, inclusi Ironman, decadenza dei vestigi e semi casuali.
+[*]Storia, boss, stato e scelte degli NPC.
+[*]Passaggi, porte, ascensori e scorciatoie riconosciuti.
+[*]Vestigi e punto di ripresa, con i riferimenti collegati.
+[/list]
+Tutte le opzioni insieme riproducono la riparazione provata su Steam. Le selezioni parziali non riallineano necessariamente tutta la campagna.
+
+Il programma verifica che inventario, oggetti, equipaggiamento, rune, statistiche, aspetto, identità del personaggio, difficoltà e NG rimangano dell’ospite. Conserva anche i progressi personali delle abilità delle armi. Gli oggetti missione non vengono sincronizzati: trasferire la storia tra campagne diverse può lasciare incoerenze nel gioco.
+
+[b]Come si usa[/b]
+[list=1]
+[*]Scarica manualmente ed estrai tutto lo ZIP. È un programma autonomo, da avviare fuori dalla cartella del gioco; non va installato con Vortex come sostituzione dei file del gioco.
+[*]Chiudi il gioco su entrambi i PC, attendi Steam Cloud e conserva un backup completo dei salvataggi dell’ospite.
+[*]Avvia AVVIA_START.bat. Non serve installare Python. Scegli Italiano o English dal menu.
+[*]Carica host e ospite, seleziona i personaggi e le categorie da sincronizzare.
+[*]Premi Analizza e confronta. Controlla i nomi e le impostazioni, poi Crea copie riparate.
+[*]Installa nell’account/slot dell’ospite soltanto i .sav presenti in CORRECTED, mantenendo i nomi e gestendo Steam Cloud. Se inclusi, sostituisci insieme principale, _b1 e _b2.
+[*]Non sostituire GeneralSave.sav e non modificare i file dell’host. Prima della cooperativa, controlla il personaggio nel gioco.
+[/list]
+Le istruzioni complete e la procedura di ripristino sono in docs/GUIDE_IT.txt. BACKUP_GUEST contiene gli originali dei file elaborati. Il programma non sovrascrive gli input e non seleziona automaticamente altri personaggi.
+
+[b]Compatibilità e test[/b]
+La scrittura è limitata ai salvataggi 2.5.624 riconosciuti. Host e ospite devono avere NG e difficoltà uguali. La riparazione di base è stata provata in gioco su Steam; il motore e l’interfaccia sono stati verificati nell’ambiente di sviluppo. L’avvio del pacchetto su un Windows reale non è stato ancora verificato in tale ambiente. Non garantiamo il funzionamento su altre versioni né la risoluzione di qualsiasi problema multiplayer.
+
+[b]Privacy e trasparenza[/b]
+Nell’archivio non sono presenti nostri save, nomi dei personaggi, ID degli account, crash dump o rapporti diagnostici personali. Le immagini mostrano l’interfaccia vuota. Il programma lavora in locale e non invia dati in rete. I rapporti creati sul tuo PC possono contenere metadati dei tuoi personaggi: controllali prima di condividerli.
+
+Codice, interfaccia, traduzioni e testo della pagina sono stati generati con ChatGPT/Codex. La riparazione è stata verificata da noi in gioco su Steam. Sorgenti, crediti e licenze sono inclusi. Utility non ufficiale, senza affiliazione con HEXWORKS o CI Games.

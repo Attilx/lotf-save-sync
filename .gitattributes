@@ -1,0 +1,2 @@
+# Retain exact release bytes (including CRLF batch files) across platforms.
+* -text
